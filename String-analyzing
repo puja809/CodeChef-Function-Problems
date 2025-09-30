@@ -1,0 +1,42 @@
+"""
+You need to analyze pairs of strings based on the following rules:
+
+Given two strings string1 and string2, and an integer length_threshold.
+Check if the combined length of the two strings is strictly greater than length_threshold.
+Check if both strings are non-empty and start with the same character, ignoring case.
+If both conditions are true, print True; otherwise, print False.
+
+Input Format
+First line contains the string string1.
+Second line contains the string string2.
+Third line contains the integer length_threshold.
+
+Output Format
+Print True or False based on the described conditions.
+
+Sample 1:
+
+Input
+apple
+Ant
+5
+
+Output
+True
+"""
+----Solution----
+def string(st1,st2,th):
+    if (st1!='' and st2!='') and (len(st1)+len(st2)>th) and st1.lower()[0]==st2.lower()[0]:
+        return True
+    else:
+        return False
+
+
+st1=input()
+st2=input()
+th=int(input())
+
+if string(st1,st2,th):
+    print('True')
+else:
+    print('False')
