@@ -1,0 +1,58 @@
+"""
+You are designing a score tracking system for a two-round game. The game maintains a global score variable total_points, which is initially 0.
+
+Your task is to implement two functions:
+
+add_points(points_to_add):
+Adds points_to_add to the global variable total_points
+Prints: Added <points_to_add> points. New total: <total_points>
+
+get_final_score():
+Prints the final total score: Final score is: <total_points>
+Handle ValueError if any and print: "Invalid input. Please enter a whole number for points."
+
+Input Format
+Two lines of input. Each line contains an integer: the points earned in Round 1 and Round 2.
+
+Output Format
+Print messages after each round using add_points.
+After both rounds, print the final score.
+Lastly, print the global variable value from the main block.
+
+Sample 1:
+Input
+10
+25
+
+Output
+Game started. Initial points: 0
+Added 10 points. New total: 10
+Added 25 points. New total: 35
+Final score is: 35
+Value of total_points outside functions, at the end: 35
+"""
+
+-----SOLUTION-----
+total_points=0
+def add_points(points_to_add):
+    global total_points
+    total_points=total_points+points_to_add
+    print(f'Added {points_to_add} points. New total: {total_points}')
+
+def get_final_score():
+    global total_points
+    print(f'Final score is: {total_points}')
+
+print(f'Game started. Initial points: {total_points}')
+try:
+    m=int(input())
+    add_points(m)
+    n=int(input())
+    add_points(n)
+    get_final_score()
+except:
+    print(f'Invalid input. Please enter a whole number for points.')
+
+print(f'Value of total_points outside functions, at the end: {total_points}')
+
+
