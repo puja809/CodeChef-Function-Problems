@@ -1,0 +1,64 @@
+"""
+You're managing ticket sales for a local event with a maximum capacity of 50 tickets.
+You need to handle two commands:
+
+sell X — Sell X tickets if enough are available.
+view — Show how many tickets are sold and how many remain.
+Use the following rules:
+
+If tickets are available, update the count and print:
+Successfully sold X tickets. Total tickets sold: Y.
+If not enough tickets are left, print:
+Cannot sell X tickets. Only R tickets left.
+For view, print two lines:
+Current tickets sold: Y.
+Remaining capacity: R.
+
+Input Format
+First line: Integer N — number of operations.
+Next N lines: Commands (sell X or view).
+
+Output Format
+Print output for each command as described.
+Sample 1:
+
+
+Input:
+5
+view
+sell 10
+view
+sell 45
+view
+
+Output:
+Current tickets sold: 0.
+Remaining capacity: 50.
+Successfully sold 10 tickets. Total tickets sold: 10.
+Current tickets sold: 10.
+Remaining capacity: 40.
+Cannot sell 45 tickets. Only 40 tickets left.
+Current tickets sold: 10.
+Remaining capacity: 40.
+"""
+
+
+----SOLUTION----
+n=int(input().strip())
+tickets=50
+sold=0
+for i in range(n):
+    a=input().strip().split(' ')
+    
+    
+    
+    if a[0].lower()=='sell' and int(a[1])<=tickets:
+        tickets=tickets-int(a[1])
+        sold=sold+int(a[1])
+        print(f'Successfully sold {a[1]} tickets. Total tickets sold: {sold}.')
+    elif a[0].lower()=='view':
+        print(f'Current tickets sold: {sold}.')
+        print(f'Remaining capacity: {tickets}.')
+        
+    else:
+        print(f'Cannot sell {a[1]} tickets. Only {tickets} tickets left.')
